@@ -23,8 +23,14 @@ from typing import Any
 from unittest.mock import patch
 
 import pytest
+import voluptuous as vol
 
 from homeassistant import config_entries
+from homeassistant.helpers.selector import (
+    NumberSelector,
+    NumberSelectorConfig,
+    NumberSelectorMode,
+)
 
 from custom_components.xcel_outages.const import (
     CONF_LATITUDE_OVERRIDE,
@@ -499,3 +505,155 @@ class TestHasValidHaCoordinates:
         hass.config.latitude = 0.0
         hass.config.longitude = 181.0
         assert _has_valid_ha_coordinates(hass) is False
+
+
+# =========================================================================
+# 10. NumberSelector form schema assertions
+# =========================================================================
+
+
+def _extract_number_selector(
+    validator: Any,
+) -> NumberSelector | None:
+    """Walk a validator (possibly vol.All) and return the first
+    NumberSelector found, or None."""
+    if isinstance(validator, NumberSelector):
+        return validator
+    if isinstance(validator, vol.All):
+        for v in validator.validators:
+            result = _extract_number_selector(v)
+            if result is not None:
+                return result
+    return None
+
+
+class TestParamsStepNumberSelectors:
+    """Each bounded integer field in the params step must use
+    NumberSelector with BOX mode, step=1, correct bounds, and correct
+    unit_of_measurement."""
+
+    FIELD_EXPECTATIONS: dict[str, dict[str, Any]] = {
+        "search_radius": {
+            "min": 1,
+            "max": 100,
+            "unit": "km",
+        },
+        "poll_interval": {
+            "min": 5,
+            "max": 60,
+            "unit": "min",
+        },
+    }
+
+    async def _go_to_params_step(self, hass):
+        """Drive the config flow to the params step via HA location."""
+        hass.config.latitude = 39.7555
+        hass.config.longitude = -105.2211
+
+        init = await hass.config_entries.flow.async_init(
+            "xcel_outages", context={"source": config_entries.SOURCE_USER}
+        )
+        loc = await hass.config_entries.flow.async_configure(
+            init["flow_id"], {CONF_USE_HOME_LOCATION: True}
+        )
+        assert loc["step_id"] == "params"
+        return loc
+
+    async def _assert_params_selector(self, hass, field_key: str) -> None:
+        result = await self._go_to_params_step(hass)
+        schema = result["data_schema"].schema
+        validator = schema[field_key]
+        selector = _extract_number_selector(validator)
+        assert selector is not None, (
+            f"Expected NumberSelector for {field_key}"
+        )
+        exp = self.FIELD_EXPECTATIONS[field_key]
+        cfg = selector.config
+        assert cfg["min"] == exp["min"]
+        assert cfg["max"] == exp["max"]
+        assert cfg["step"] == 1
+        assert cfg["mode"] == NumberSelectorMode.BOX
+        assert cfg["unit_of_measurement"] == exp["unit"]
+
+    async def test_params_step_search_radius_selector(self, hass):
+        await self._assert_params_selector(hass, CONF_SEARCH_RADIUS)
+
+    async def test_params_step_poll_interval_selector(self, hass):
+        await self._assert_params_selector(hass, CONF_POLL_INTERVAL)
+
+
+class TestOptionsInitStepNumberSelectors:
+    """Each bounded integer field in the options init step must use
+    NumberSelector with BOX mode, step=1, correct bounds, and correct
+    unit_of_measurement."""
+
+    FIELD_EXPECTATIONS: dict[str, dict[str, Any]] = {
+        "search_radius": {
+            "min": 1,
+            "max": 100,
+            "unit": "km",
+        },
+        "local_radius": {
+            "min": 1,
+            "max": 50,
+            "unit": "km",
+        },
+        "material_threshold": {
+            "min": 1,
+            "max": 10_000,
+            "unit": "customers",
+        },
+        "poll_interval": {
+            "min": 5,
+            "max": 60,
+            "unit": "min",
+        },
+    }
+
+    async def _go_to_init_step(self, hass):
+        """Drive the options flow to the init step."""
+        from pytest_homeassistant_custom_component.common import MockConfigEntry
+
+        entry = MockConfigEntry(
+            domain="xcel_outages",
+            data={CONF_USE_HOME_LOCATION: True},
+            options={
+                CONF_SEARCH_RADIUS: 25,
+                CONF_LOCAL_RADIUS: DEFAULT_LOCAL_RADIUS,
+                CONF_MATERIAL_THRESHOLD: DEFAULT_MATERIAL_THRESHOLD,
+                CONF_POLL_INTERVAL: 10,
+            },
+            entry_id="opts_sel_test",
+        )
+        entry.add_to_hass(hass)
+        result = await hass.config_entries.options.async_init(entry.entry_id)
+        assert result["step_id"] == "init"
+        return result
+
+    async def _assert_selector(self, hass, field_key: str) -> None:
+        result = await self._go_to_init_step(hass)
+        schema = result["data_schema"].schema
+        validator = schema[field_key]
+        selector = _extract_number_selector(validator)
+        assert selector is not None, (
+            f"Expected NumberSelector for {field_key}"
+        )
+        exp = self.FIELD_EXPECTATIONS[field_key]
+        cfg = selector.config
+        assert cfg["min"] == exp["min"]
+        assert cfg["max"] == exp["max"]
+        assert cfg["step"] == 1
+        assert cfg["mode"] == NumberSelectorMode.BOX
+        assert cfg["unit_of_measurement"] == exp["unit"]
+
+    async def test_options_init_search_radius_selector(self, hass):
+        await self._assert_selector(hass, CONF_SEARCH_RADIUS)
+
+    async def test_options_init_local_radius_selector(self, hass):
+        await self._assert_selector(hass, CONF_LOCAL_RADIUS)
+
+    async def test_options_init_material_threshold_selector(self, hass):
+        await self._assert_selector(hass, CONF_MATERIAL_THRESHOLD)
+
+    async def test_options_init_poll_interval_selector(self, hass):
+        await self._assert_selector(hass, CONF_POLL_INTERVAL)

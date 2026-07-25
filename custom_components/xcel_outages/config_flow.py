@@ -41,6 +41,11 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
+from homeassistant.helpers.selector import (
+    NumberSelector,
+    NumberSelectorConfig,
+    NumberSelectorMode,
+)
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
@@ -271,12 +276,30 @@ class XcelOutagesConfigFlow(ConfigFlow, domain=DOMAIN):
             vol.Required(
                 CONF_SEARCH_RADIUS, default=DEFAULT_SEARCH_RADIUS
             ): vol.All(
+                NumberSelector(
+                    NumberSelectorConfig(
+                        min=MIN_SEARCH_RADIUS,
+                        max=MAX_SEARCH_RADIUS,
+                        step=1,
+                        mode=NumberSelectorMode.BOX,
+                        unit_of_measurement="km",
+                    )
+                ),
                 vol.Coerce(int),
                 vol.Range(min=MIN_SEARCH_RADIUS, max=MAX_SEARCH_RADIUS),
             ),
             vol.Required(
                 CONF_POLL_INTERVAL, default=DEFAULT_POLL_INTERVAL
             ): vol.All(
+                NumberSelector(
+                    NumberSelectorConfig(
+                        min=MIN_POLL_INTERVAL,
+                        max=MAX_POLL_INTERVAL,
+                        step=1,
+                        mode=NumberSelectorMode.BOX,
+                        unit_of_measurement="min",
+                    )
+                ),
                 vol.Coerce(int),
                 vol.Range(min=MIN_POLL_INTERVAL, max=MAX_POLL_INTERVAL),
             ),
@@ -376,6 +399,15 @@ class XcelOutagesOptionsFlow(OptionsFlow):
                             CONF_SEARCH_RADIUS, DEFAULT_SEARCH_RADIUS
                         ),
                     ): vol.All(
+                        NumberSelector(
+                            NumberSelectorConfig(
+                                min=MIN_SEARCH_RADIUS,
+                                max=MAX_SEARCH_RADIUS,
+                                step=1,
+                                mode=NumberSelectorMode.BOX,
+                                unit_of_measurement="km",
+                            )
+                        ),
                         vol.Coerce(int),
                         vol.Range(
                             min=MIN_SEARCH_RADIUS, max=MAX_SEARCH_RADIUS
@@ -387,6 +419,15 @@ class XcelOutagesOptionsFlow(OptionsFlow):
                             CONF_LOCAL_RADIUS, DEFAULT_LOCAL_RADIUS
                         ),
                     ): vol.All(
+                        NumberSelector(
+                            NumberSelectorConfig(
+                                min=MIN_LOCAL_RADIUS,
+                                max=MAX_LOCAL_RADIUS,
+                                step=1,
+                                mode=NumberSelectorMode.BOX,
+                                unit_of_measurement="km",
+                            )
+                        ),
                         vol.Coerce(int),
                         vol.Range(
                             min=MIN_LOCAL_RADIUS, max=MAX_LOCAL_RADIUS
@@ -399,6 +440,15 @@ class XcelOutagesOptionsFlow(OptionsFlow):
                             DEFAULT_MATERIAL_THRESHOLD,
                         ),
                     ): vol.All(
+                        NumberSelector(
+                            NumberSelectorConfig(
+                                min=MIN_MATERIAL_THRESHOLD,
+                                max=MAX_MATERIAL_THRESHOLD,
+                                step=1,
+                                mode=NumberSelectorMode.BOX,
+                                unit_of_measurement="customers",
+                            )
+                        ),
                         vol.Coerce(int),
                         vol.Range(
                             min=MIN_MATERIAL_THRESHOLD,
@@ -411,6 +461,15 @@ class XcelOutagesOptionsFlow(OptionsFlow):
                             CONF_POLL_INTERVAL, DEFAULT_POLL_INTERVAL
                         ),
                     ): vol.All(
+                        NumberSelector(
+                            NumberSelectorConfig(
+                                min=MIN_POLL_INTERVAL,
+                                max=MAX_POLL_INTERVAL,
+                                step=1,
+                                mode=NumberSelectorMode.BOX,
+                                unit_of_measurement="min",
+                            )
+                        ),
                         vol.Coerce(int),
                         vol.Range(
                             min=MIN_POLL_INTERVAL, max=MAX_POLL_INTERVAL
