@@ -1,5 +1,7 @@
 # Xcel Outage Map
 
+<img src="custom_components/xcel_outages/brand/icon.png" alt="Xcel Outage Map icon" width="128">
+
 Unofficial Home Assistant integration that polls Xcel Energy's public outage-map cache and exposes nearby-outage context at the configured location.
 
 **This integration is not affiliated with, endorsed by, or sponsored by Xcel Energy.**
