@@ -102,7 +102,7 @@ The integration polls Xcel Energy's public outage-map cache:
 https://xcelenergy.datacapable.com/datacapable/v2/cache/p/xcelenergy/map/events
 ```
 
-This is the same endpoint that powers the official [Xcel Energy Outage Map](https://www.xcelenergy.com/outages_and_emergencies/outage_map).
+This is the same endpoint that powers the official [Xcel Energy Outage Map](https://www.outagemap-xcelenergy.com/outagemap/).
 
 ### Polling behaviour
 
