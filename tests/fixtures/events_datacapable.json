@@ -1,0 +1,139 @@
+[
+  {
+    "identifier": "array_active",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Active array-form event",
+    "status": "ACTIVE",
+    "cause": "tree contact",
+    "numPeople": 75,
+    "latitude": 39.85,
+    "longitude": -105.30,
+    "county": "Boulder",
+    "additionalProperties": [
+      {"property": "states", "value": ["CO"]},
+      {"property": "city", "value": "Boulder"},
+      {"property": "outageimpact", "value": "Moderate"},
+      {"property": "outagestatus", "value": "Active"},
+      {"property": "comments", "value": ""}
+    ]
+  },
+  {
+    "identifier": "array_string_states",
+    "startTime": "2026-07-24T11:00:00Z",
+    "lastUpdatedTime": "2026-07-24T11:30:00Z",
+    "etrTime": null,
+    "title": "String states in array format",
+    "status": "ACTIVE",
+    "cause": "maintenance",
+    "numPeople": 25,
+    "latitude": 39.70,
+    "longitude": -104.95,
+    "county": "Denver",
+    "additionalProperties": [
+      {"property": "states", "value": "CO"},
+      {"property": "city", "value": "Denver"}
+    ]
+  },
+  {
+    "identifier": "array_terminal_status",
+    "startTime": "2026-07-24T09:00:00Z",
+    "lastUpdatedTime": "2026-07-24T09:15:00Z",
+    "etrTime": null,
+    "title": "Terminal status in array format",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 50,
+    "latitude": 39.80,
+    "longitude": -105.10,
+    "county": "Jefferson",
+    "additionalProperties": [
+      {"property": "states", "value": ["CO"]},
+      {"property": "outagestatus", "value": "Resolved"},
+      {"property": "city", "value": "Golden"}
+    ]
+  },
+  {
+    "identifier": "array_top_terminal",
+    "startTime": "2026-07-24T08:00:00Z",
+    "lastUpdatedTime": "2026-07-24T08:30:00Z",
+    "etrTime": null,
+    "title": "Top-level terminal status",
+    "status": "RESOLVED",
+    "cause": "completed",
+    "numPeople": 10,
+    "latitude": 39.75,
+    "longitude": -105.20,
+    "county": "Jefferson",
+    "additionalProperties": [
+      {"property": "states", "value": ["CO"]},
+      {"property": "city", "value": "Lakewood"}
+    ]
+  },
+  {
+    "identifier": "array_missing_addprops",
+    "startTime": "2026-07-24T12:00:00Z",
+    "lastUpdatedTime": "2026-07-24T12:15:00Z",
+    "etrTime": null,
+    "title": "Missing additionalProperties",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 30,
+    "latitude": 39.78,
+    "longitude": -105.15,
+    "county": "Jefferson"
+  },
+  {
+    "identifier": "array_non_dict_record",
+    "startTime": "2026-07-24T13:00:00Z",
+    "lastUpdatedTime": "2026-07-24T13:15:00Z",
+    "etrTime": null,
+    "title": "Non-dict record in array",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 20,
+    "latitude": 39.82,
+    "longitude": -105.25,
+    "county": "Boulder",
+    "additionalProperties": [
+      {"property": "states", "value": ["CO"]},
+      "not_a_record",
+      {"property": "city", "value": "Nederland"}
+    ]
+  },
+  {
+    "identifier": "array_missing_value_field",
+    "startTime": "2026-07-24T14:00:00Z",
+    "lastUpdatedTime": "2026-07-24T14:15:00Z",
+    "etrTime": null,
+    "title": "Record missing value field",
+    "status": "ACTIVE",
+    "cause": "storm",
+    "numPeople": 40,
+    "latitude": 39.73,
+    "longitude": -105.05,
+    "county": "Jefferson",
+    "additionalProperties": [
+      {"property": "states", "value": ["CO"]},
+      {"property": "city"}
+    ]
+  },
+  {
+    "identifier": "numeric_ts_active",
+    "startTime": 1784944800000,
+    "lastUpdatedTime": 1784946600000,
+    "etrTime": 1784955600000,
+    "title": "Numeric millisecond timestamps",
+    "status": "ACTIVE",
+    "cause": "equipment",
+    "numPeople": 60,
+    "latitude": 39.90,
+    "longitude": -105.35,
+    "county": "Boulder",
+    "additionalProperties": [
+      {"property": "states", "value": ["CO"]},
+      {"property": "city", "value": "Lyons"}
+    ]
+  }
+]

@@ -85,11 +85,26 @@ def _parse_int_strict(value: Any, field_name: str) -> int | None:
 
 
 def _parse_datetime(value: Any) -> datetime.datetime | None:
-    """Parse an ISO-8601 datetime string.
+    """Parse an ISO-8601 datetime string or numeric epoch-millisecond value.
 
-    Accepts strings with and without trailing ``Z`` / timezone offset.
-    Returns ``None`` when the value is missing or unparsable.
+    Accepts:
+    * Strings with and without trailing ``Z`` / timezone offset.
+    * ``int`` / ``float`` epoch-millisecond timestamps (non-bool, finite).
+
+    Returns ``None`` when the value is missing, unparsable, or out of range.
+    Error messages never include the raw value.
     """
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        if not math.isfinite(value):
+            return None
+        try:
+            return datetime.datetime.fromtimestamp(
+                value / 1000.0, tz=datetime.timezone.utc
+            )
+        except (OSError, OverflowError, ValueError):
+            return None
     if not isinstance(value, str) or not value.strip():
         return None
     text = value.strip()
@@ -124,18 +139,52 @@ def _normalize_states(raw: Any) -> tuple[str, ...]:
     return ()
 
 
+def _normalize_additional_properties(raw: Any) -> dict[str, Any] | None:
+    """Normalise ``additionalProperties`` to a ``dict``.
+
+    The live endpoint may return ``additionalProperties`` as either:
+
+    * A ``dict`` — used as-is.
+    * A ``list`` of ``{"property": <str>, "value": <any>}`` records —
+      converted to a ``dict`` (last value wins on duplicate property names).
+    * ``None`` or absent — treated as an empty dict.
+    * Any other type — returns ``None`` (unusable, triggers strict malformed
+      handling in the caller).
+
+    Malformed list items (non-dict, missing ``property`` key, non-string
+    ``property``) are silently skipped.
+    """
+    if raw is None:
+        return {}
+    if isinstance(raw, dict):
+        return raw
+    if isinstance(raw, list):
+        result: dict[str, Any] = {}
+        for item in raw:
+            if not isinstance(item, dict):
+                continue
+            prop = item.get("property")
+            if not isinstance(prop, str):
+                continue
+            result[prop] = item.get("value")
+        return result
+    return None
+
+
 def _is_excluded_status(raw: dict[str, Any]) -> bool:
     """Return ``True`` if **either** the top-level ``status`` or the
     supplemental ``outagestatus`` (inside ``additionalProperties``) is a
     terminal value (resolved/closed/cancelled/complete/completed).
 
     Comparison is case-insensitive.  Missing or non-string values are ignored.
+    ``additionalProperties`` is normalised from the list-of-records form
+    transparently.
     """
     status = raw.get("status")
     if isinstance(status, str) and status.strip().lower() in EXCLUDED_STATUSES:
         return True
-    add_props = raw.get("additionalProperties")
-    if isinstance(add_props, dict):
+    add_props = _normalize_additional_properties(raw.get("additionalProperties"))
+    if add_props is not None:
         outagestatus = add_props.get("outagestatus")
         if (
             isinstance(outagestatus, str)
@@ -196,9 +245,11 @@ def parse_event(raw: dict[str, Any]) -> OutageEvent | None:
        ``numPeople``) must be present.
     2. ``latitude`` and ``longitude`` must be finite floats within range.
     3. ``numPeople`` must be a non-negative integer (no bool, no float).
-    4. ``additionalProperties`` must be a ``dict`` if present; supplemental
-       fields (including ``states``) are normalised and the result is wrapped
-       in an immutable :class:`~types.MappingProxyType`.
+    4. ``additionalProperties`` (if present) is normalised via
+       :func:`_normalize_additional_properties` — accepts both ``dict`` and
+       ``list``-of-records forms.  Supplemental fields (including ``states``)
+       are normalised and the result is wrapped in an immutable
+       :class:`~types.MappingProxyType`.
     """
     # --- presence check ----------------------------------------------------
     missing = _REQUIRED_FIELDS - raw.keys()
@@ -227,11 +278,9 @@ def parse_event(raw: dict[str, Any]) -> OutageEvent | None:
         return None
 
     # --- additionalProperties + states normalisation -----------------------
-    add_props = raw.get("additionalProperties")
-    if add_props is not None and not isinstance(add_props, dict):
+    add_props = _normalize_additional_properties(raw.get("additionalProperties"))
+    if add_props is None:
         return None
-    if not isinstance(add_props, dict):
-        add_props = {}
 
     # Build an immutable copy with ``states`` normalised to tuple
     immutable_add_props: dict[str, Any] = dict(add_props)

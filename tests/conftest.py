@@ -98,6 +98,17 @@ def raw_events_outagestatus():
     return load_fixture("events_outagestatus.json")
 
 
+@pytest.fixture
+def raw_events_datacapable():
+    """Events using the live Datacapable array-form ``additionalProperties``
+    (a list of ``{property, value}`` records rather than a flat dict).
+
+    This fixture mimics the actual production payload shape for testing
+    parser and API resilience.
+    """
+    return load_fixture("events_datacapable.json")
+
+
 # ---------------------------------------------------------------------------
 # Parser fixtures — inline Python for values JSON cannot represent
 # ---------------------------------------------------------------------------
