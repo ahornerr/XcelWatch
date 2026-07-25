@@ -1,0 +1,135 @@
+[
+  {
+    "identifier": "good01",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Valid outage",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 50,
+    "latitude": 39.75,
+    "longitude": -105.0,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  "not_a_dict",
+  42,
+  null,
+  {
+    "identifier": "missing_coords",
+    "startTime": "2026-07-24T11:00:00Z",
+    "lastUpdatedTime": "2026-07-24T11:30:00Z",
+    "etrTime": "2026-07-24T13:00:00Z",
+    "title": "Missing coordinates",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 30,
+    "county": "Boulder",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Boulder",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "bad_lat",
+    "startTime": "2026-07-24T12:00:00Z",
+    "lastUpdatedTime": "2026-07-24T12:30:00Z",
+    "etrTime": "2026-07-24T14:00:00Z",
+    "title": "Non-numeric latitude",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 20,
+    "latitude": "invalid",
+    "longitude": -105.0,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "bad_lon",
+    "startTime": "2026-07-24T12:00:00Z",
+    "lastUpdatedTime": "2026-07-24T12:30:00Z",
+    "etrTime": "2026-07-24T14:00:00Z",
+    "title": "Non-numeric longitude",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 20,
+    "latitude": 39.75,
+    "longitude": null,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "non_integer_people",
+    "startTime": "2026-07-24T13:00:00Z",
+    "lastUpdatedTime": "2026-07-24T13:30:00Z",
+    "etrTime": "2026-07-24T15:00:00Z",
+    "title": "Non-integer numPeople",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": "many",
+    "latitude": 39.76,
+    "longitude": -105.01,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "missing_people",
+    "startTime": "2026-07-24T14:00:00Z",
+    "lastUpdatedTime": "2026-07-24T14:30:00Z",
+    "etrTime": "2026-07-24T16:00:00Z",
+    "title": "Missing numPeople",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "latitude": 39.77,
+    "longitude": -105.02,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "no_addl_props",
+    "startTime": "2026-07-24T15:00:00Z",
+    "lastUpdatedTime": "2026-07-24T15:30:00Z",
+    "etrTime": "2026-07-24T17:00:00Z",
+    "title": "No additionalProperties",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 40,
+    "latitude": 39.78,
+    "longitude": -105.03,
+    "county": "Jefferson"
+  }
+]

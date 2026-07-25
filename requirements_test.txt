@@ -1,0 +1,28 @@
+# =============================================================================
+# Test dependencies for ha-xcel-outages
+# =============================================================================
+#
+# Two test paths:
+#
+#   1. Pure-core tests (no Home Assistant required):
+#      $ pytest -q
+#
+#   2. Home Assistant integration tests (HA required):
+#      $ pip install -r requirements_test.txt
+#      $ pytest tests/ha/ -v
+#
+# Pure-core tests import only parser/scoring/model/const modules and run
+# without homeassistant installed.  HA integration tests require the full
+# Home Assistant stack and pytest-homeassistant-custom-component.
+# =============================================================================
+
+# --- Always required ---------------------------------------------------------
+pytest>=8.0
+pytest-asyncio>=0.21
+
+# --- Home Assistant integration tests (optional, tests/ha/ only) -------------
+# Install these to run the HA test suite under tests/ha/:
+#   pip install -r requirements_test.txt
+homeassistant>=2026.7.0
+pytest-homeassistant-custom-component>=0.13.0
+aiohttp>=3.9.0

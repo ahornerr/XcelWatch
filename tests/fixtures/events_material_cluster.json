@@ -1,0 +1,142 @@
+[
+  {
+    "identifier": "mat01",
+    "startTime": "2026-07-24T08:00:00Z",
+    "lastUpdatedTime": "2026-07-24T09:00:00Z",
+    "etrTime": "2026-07-24T14:00:00Z",
+    "title": "Major outage Denver metro",
+    "status": "ACTIVE",
+    "cause": "equipment failure",
+    "numPeople": 1200,
+    "latitude": 39.7392,
+    "longitude": -104.9903,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "mat02",
+    "startTime": "2026-07-24T08:30:00Z",
+    "lastUpdatedTime": "2026-07-24T09:30:00Z",
+    "etrTime": "2026-07-24T15:00:00Z",
+    "title": "Substation issue Aurora",
+    "status": "ACTIVE",
+    "cause": "substation problem",
+    "numPeople": 850,
+    "latitude": 39.7294,
+    "longitude": -104.8319,
+    "county": "Arapahoe",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Aurora",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "mat03",
+    "startTime": "2026-07-24T09:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:00:00Z",
+    "etrTime": "2026-07-24T16:00:00Z",
+    "title": "Transformer fire Lakewood",
+    "status": "ACTIVE",
+    "cause": "transformer fire",
+    "numPeople": 450,
+    "latitude": 39.7047,
+    "longitude": -105.0814,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Lakewood",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "mat04",
+    "startTime": "2026-07-24T07:00:00Z",
+    "lastUpdatedTime": "2026-07-24T08:00:00Z",
+    "etrTime": "2026-07-24T18:00:00Z",
+    "title": "Wind damage Littleton",
+    "status": "ACTIVE",
+    "cause": "wind",
+    "numPeople": 320,
+    "latitude": 39.6133,
+    "longitude": -105.0166,
+    "county": "Arapahoe",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Littleton",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "mat05",
+    "startTime": "2026-07-24T06:00:00Z",
+    "lastUpdatedTime": "2026-07-24T07:30:00Z",
+    "etrTime": "2026-07-24T20:00:00Z",
+    "title": "Vehicle accident Commerce City",
+    "status": "ACTIVE",
+    "cause": "vehicle accident",
+    "numPeople": 180,
+    "latitude": 39.8083,
+    "longitude": -104.9339,
+    "county": "Adams",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Commerce City",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "small01",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Minor outage Golden",
+    "status": "ACTIVE",
+    "cause": "tree contact",
+    "numPeople": 5,
+    "latitude": 39.7555,
+    "longitude": -105.2211,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "small02",
+    "startTime": "2026-07-24T11:00:00Z",
+    "lastUpdatedTime": "2026-07-24T11:30:00Z",
+    "etrTime": "2026-07-24T13:00:00Z",
+    "title": "Fuse operation Wheat Ridge",
+    "status": "ACTIVE",
+    "cause": "fuse operation",
+    "numPeople": 12,
+    "latitude": 39.7661,
+    "longitude": -105.0772,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Wheat Ridge",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  }
+]

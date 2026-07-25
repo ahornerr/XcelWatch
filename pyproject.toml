@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "ha-xcel-outages"
+version = "0.1.0"
+description = "Unofficial Home Assistant integration for Xcel Energy outage map"
+requires-python = ">=3.14"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--ignore=tests/ha",
+    "--ignore=tests/hass",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+markers = [
+    "parser: tests for the parser module",
+    "scoring: tests for the scoring module",
+    "privacy: tests for privacy invariants",
+    "hass: Home Assistant integration tests (requires homeassistant and pytest-homeassistant-custom-component)",
+    "api: network-layer tests that mock aiohttp",
+    "coordinator: tests for the DataUpdateCoordinator subclass",
+    "sensor: tests for sensor/binary_sensor entities",
+    "config_flow: tests for the config flow and options flow",
+    "integration: full lifecycle setup/unload tests",
+]
+
+[tool.coverage.run]
+source = ["custom_components/xcel_outages"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true

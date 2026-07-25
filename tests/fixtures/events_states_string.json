@@ -1,0 +1,141 @@
+[
+  {
+    "identifier": "str_state_co",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "String state CO",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 30,
+    "latitude": 39.75,
+    "longitude": -105.0,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": "CO",
+      "city": "Golden",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "str_state_colorado",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "String state Colorado",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 20,
+    "latitude": 39.74,
+    "longitude": -104.99,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": "Colorado",
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "str_state_colo",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "String state colo lower",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 10,
+    "latitude": 39.73,
+    "longitude": -104.98,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": "colo",
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "list_state",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "List state CO",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 15,
+    "latitude": 39.72,
+    "longitude": -104.97,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "no_state",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "No state field",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 25,
+    "latitude": 39.71,
+    "longitude": -104.96,
+    "county": "Denver",
+    "additionalProperties": {
+      "city": "Denver",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "non_co_list",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Non-CO state list",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 50,
+    "latitude": 44.95,
+    "longitude": -93.09,
+    "county": "Hennepin",
+    "additionalProperties": {
+      "states": ["MN"],
+      "city": "Minneapolis",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "empty_states_list",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Empty states list",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 10,
+    "latitude": 39.7,
+    "longitude": -104.95,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": [],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "identifier": "g001",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T14:00:00Z",
+    "title": "Growth event 1",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 100,
+    "latitude": 39.75,
+    "longitude": -105.0,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "g002",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T14:00:00Z",
+    "title": "Growth event 2",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 60,
+    "latitude": 39.74,
+    "longitude": -104.99,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  }
+]

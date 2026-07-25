@@ -1,0 +1,70 @@
+[
+  {
+    "identifier": "active_active",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Both active",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 50,
+    "latitude": 39.75,
+    "longitude": -105.0,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "outagestatus": "Active"
+    }
+  },
+  {
+    "identifier": "resolved_resolved",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Both resolved",
+    "status": "RESOLVED",
+    "cause": "completed",
+    "numPeople": 30,
+    "latitude": 39.74,
+    "longitude": -104.99,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "outagestatus": "Resolved"
+    }
+  },
+  {
+    "identifier": "top_resolved_outage_active",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Status resolved, outagestatus active",
+    "status": "RESOLVED",
+    "cause": "unknown",
+    "numPeople": 40,
+    "latitude": 39.73,
+    "longitude": -104.98,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "outagestatus": "Active"
+    }
+  },
+  {
+    "identifier": "top_active_outage_resolved",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Status active, outagestatus resolved",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 35,
+    "latitude": 39.72,
+    "longitude": -104.97,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "outagestatus": "Resolved"
+    }
+  }
+]

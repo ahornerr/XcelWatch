@@ -1,0 +1,13 @@
+.slim/deepwork/
+
+# Python tooling and generated artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/

@@ -1,0 +1,42 @@
+[
+  {
+    "identifier": "e001",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "Minor outage near Boulder",
+    "status": "ACTIVE",
+    "cause": "tree contact",
+    "numPeople": 3,
+    "latitude": 40.015,
+    "longitude": -105.27,
+    "county": "Boulder",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Boulder",
+      "outageimpact": "Minor",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "e002",
+    "startTime": "2026-07-24T11:00:00Z",
+    "lastUpdatedTime": "2026-07-24T11:15:00Z",
+    "etrTime": "2026-07-24T13:00:00Z",
+    "title": "Planned maintenance Lyons",
+    "status": "ACTIVE",
+    "cause": "maintenance",
+    "numPeople": 1,
+    "latitude": 40.2247,
+    "longitude": -105.271,
+    "county": "Boulder",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Lyons",
+      "outageimpact": "Planned",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  }
+]

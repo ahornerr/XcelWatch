@@ -1,0 +1,132 @@
+{
+  "config": {
+    "step": {
+      "location": {
+        "title": "Location",
+        "description": "Choose the location to monitor for nearby outages. You can use your Home Assistant home coordinates or enter custom coordinates.",
+        "data": {
+          "use_home_location": "Use Home Assistant home location"
+        }
+      },
+      "override": {
+        "title": "Override Coordinates",
+        "description": "Enter the latitude and longitude to use for outage monitoring.",
+        "data": {
+          "latitude_override": "Latitude",
+          "longitude_override": "Longitude"
+        },
+        "data_description": {
+          "latitude_override": "Decimal latitude (-90 to 90)",
+          "longitude_override": "Decimal longitude (-180 to 180)"
+        }
+      },
+      "params": {
+        "title": "Parameters",
+        "description": "Configure the search area and polling frequency. A test connection to the Xcel Energy outage endpoint will be performed before completing setup.",
+        "data": {
+          "search_radius": "Search radius (km)",
+          "poll_interval": "Poll interval (minutes)"
+        },
+        "data_description": {
+          "search_radius": "Maximum distance from the chosen location to search for outages",
+          "poll_interval": "How often to check for new outage data"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the Xcel Energy outage endpoint. Check your internet connection and try again.",
+      "unsupported_response": "The Xcel Energy outage endpoint returned an unexpected response format. The integration may be incompatible with a recent upstream change.",
+      "invalid_coordinates": "Coordinates must be valid: latitude between -90 and 90, longitude between -180 and 180.",
+      "missing_coordinates": "No valid coordinates available. Provide override coordinates or configure a home location in Home Assistant."
+    },
+    "abort": {
+      "missing_coordinates": "No valid coordinates available. Provide override coordinates or configure a home location in Home Assistant.",
+      "invalid_coordinates": "Coordinates must be valid: latitude between -90 and 90, longitude between -180 and 180."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Xcel Outage Map Options",
+        "description": "Update search area, polling behaviour, and location source. Changes take effect immediately.",
+        "data": {
+          "use_home_location": "Use Home Assistant home location",
+          "search_radius": "Search radius (km)",
+          "local_radius": "Local radius (km)",
+          "material_threshold": "Material outage threshold (customers)",
+          "poll_interval": "Poll interval (minutes)"
+        },
+        "data_description": {
+          "search_radius": "Maximum distance from the chosen location to search for outages",
+          "local_radius": "Secondary radius for local-density risk scoring",
+          "material_threshold": "Minimum affected customers for an outage to be considered material",
+          "poll_interval": "How often to check for new outage data"
+        }
+      },
+      "override": {
+        "title": "Override Coordinates",
+        "description": "Enter override coordinates to use for outage monitoring.",
+        "data": {
+          "latitude_override": "Latitude",
+          "longitude_override": "Longitude"
+        },
+        "data_description": {
+          "latitude_override": "Decimal latitude (-90 to 90)",
+          "longitude_override": "Decimal longitude (-180 to 180)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the Xcel Energy outage endpoint. Check your internet connection and try again.",
+      "unsupported_response": "The Xcel Energy outage endpoint returned an unexpected response format.",
+      "invalid_coordinates": "Coordinates must be valid: latitude between -90 and 90, longitude between -180 and 180.",
+      "missing_coordinates": "No valid coordinates available. Provide override coordinates or configure a home location in Home Assistant."
+    },
+    "abort": {
+      "missing_coordinates": "No valid coordinates available. Provide override coordinates or configure a home location in Home Assistant.",
+      "invalid_coordinates": "Coordinates must be valid: latitude between -90 and 90, longitude between -180 and 180."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "xcel_nearby_outage_risk": {
+        "name": "Nearby Outage Risk",
+        "state": {
+          "unknown": "Unknown"
+        }
+      },
+      "xcel_nearby_outage_customers": {
+        "name": "Nearby Outage Customers",
+        "state": {
+          "unknown": "Unknown"
+        }
+      },
+      "xcel_nearest_material_outage_distance": {
+        "name": "Nearest Material Outage Distance",
+        "state": {
+          "unknown": "Unknown"
+        }
+      },
+      "xcel_nearby_outage_count": {
+        "name": "Nearby Outage Count",
+        "state": {
+          "unknown": "Unknown"
+        }
+      },
+      "xcel_last_update_timestamp": {
+        "name": "Last Update Timestamp",
+        "state": {
+          "unknown": "Unknown"
+        }
+      }
+    },
+    "binary_sensor": {
+      "xcel_material_outage_nearby": {
+        "name": "Material Outage Nearby",
+        "state": {
+          "unknown": "Unknown"
+        }
+      }
+    }
+  }
+}

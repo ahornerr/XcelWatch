@@ -1,0 +1,62 @@
+[
+  {
+    "identifier": "dup01",
+    "startTime": "2026-07-24T08:00:00Z",
+    "lastUpdatedTime": "2026-07-24T08:30:00Z",
+    "etrTime": "2026-07-24T12:00:00Z",
+    "title": "First instance",
+    "status": "ACTIVE",
+    "cause": "initial report",
+    "numPeople": 100,
+    "latitude": 39.75,
+    "longitude": -105.0,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "dup02",
+    "startTime": "2026-07-24T09:00:00Z",
+    "lastUpdatedTime": "2026-07-24T09:30:00Z",
+    "etrTime": "2026-07-24T13:00:00Z",
+    "title": "Unique event",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 50,
+    "latitude": 39.74,
+    "longitude": -104.99,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Moderate",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "dup01",
+    "startTime": "2026-07-24T10:00:00Z",
+    "lastUpdatedTime": "2026-07-24T10:30:00Z",
+    "etrTime": "2026-07-24T14:00:00Z",
+    "title": "Second instance (later wins)",
+    "status": "ACTIVE",
+    "cause": "updated report",
+    "numPeople": 200,
+    "latitude": 39.76,
+    "longitude": -105.01,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": "Updated customer count"
+    }
+  }
+]

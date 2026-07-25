@@ -1,0 +1,102 @@
+[
+  {
+    "identifier": "active_01",
+    "startTime": "2026-07-24T06:00:00Z",
+    "lastUpdatedTime": "2026-07-24T08:00:00Z",
+    "etrTime": "2026-07-24T10:00:00Z",
+    "title": "Active outage",
+    "status": "ACTIVE",
+    "cause": "unknown",
+    "numPeople": 100,
+    "latitude": 39.75,
+    "longitude": -105.0,
+    "county": "Jefferson",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Golden",
+      "outageimpact": "Major",
+      "outagestatus": "Active",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "resolved_01",
+    "startTime": "2026-07-23T10:00:00Z",
+    "lastUpdatedTime": "2026-07-23T14:00:00Z",
+    "etrTime": "2026-07-23T15:00:00Z",
+    "title": "Resolved outage",
+    "status": "RESOLVED",
+    "cause": "tree contact",
+    "numPeople": 50,
+    "latitude": 39.74,
+    "longitude": -104.99,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Moderate",
+      "outagestatus": "Resolved",
+      "comments": "Power restored"
+    }
+  },
+  {
+    "identifier": "closed_01",
+    "startTime": "2026-07-22T08:00:00Z",
+    "lastUpdatedTime": "2026-07-22T12:00:00Z",
+    "etrTime": "2026-07-22T13:00:00Z",
+    "title": "Closed outage",
+    "status": "CLOSED",
+    "cause": "planned maintenance",
+    "numPeople": 30,
+    "latitude": 39.73,
+    "longitude": -104.98,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Closed",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "cancelled_01",
+    "startTime": "2026-07-21T06:00:00Z",
+    "lastUpdatedTime": "2026-07-21T07:00:00Z",
+    "etrTime": "2026-07-21T08:00:00Z",
+    "title": "Cancelled outage",
+    "status": "CANCELLED",
+    "cause": "cancelled",
+    "numPeople": 20,
+    "latitude": 39.72,
+    "longitude": -104.97,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Cancelled",
+      "comments": ""
+    }
+  },
+  {
+    "identifier": "resolved_case_02",
+    "startTime": "2026-07-24T05:00:00Z",
+    "lastUpdatedTime": "2026-07-24T09:00:00Z",
+    "etrTime": "2026-07-24T11:00:00Z",
+    "title": "Lowercase resolved",
+    "status": "resolved",
+    "cause": "unknown",
+    "numPeople": 15,
+    "latitude": 39.71,
+    "longitude": -104.96,
+    "county": "Denver",
+    "additionalProperties": {
+      "states": ["CO"],
+      "city": "Denver",
+      "outageimpact": "Minor",
+      "outagestatus": "Resolved",
+      "comments": ""
+    }
+  }
+]
